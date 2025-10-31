@@ -10,7 +10,7 @@
             <li>
                 <input type="checkbox">
                 <span>{{ item.task }}</span>
-                <button>Delete</button>
+                <button (click)="deleteTodoItem(item.id)">Delete</button>
             </li>
         </ul>
     </div>

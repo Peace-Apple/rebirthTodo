@@ -31,4 +31,8 @@ export class Todo {
       this.todoItems.push(newTodoItem);
     }
   }
+
+  deleteTodoItem(itemId: string) {
+    this.todoItems = this.todoItems.filter(item => item.id != itemId)
+  }
 }
