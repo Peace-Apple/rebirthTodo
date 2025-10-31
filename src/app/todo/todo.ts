@@ -35,4 +35,11 @@ export class Todo {
   deleteTodoItem(itemId: string) {
     this.todoItems = this.todoItems.filter(item => item.id != itemId)
   }
+
+  completeTodo(itemId: string) {
+    const item = this.todoItems.find(item => item.id === itemId);
+    if (item) {
+      item.completed = !item.completed;
+    }
+  }
 }
