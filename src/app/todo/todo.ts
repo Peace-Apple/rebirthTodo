@@ -24,6 +24,7 @@ export class Todo {
     if (this.newTask.trim()) {
       this.todoItems.push(newTodoItem);
     }
+    this.newTask = '';
   }
 
   deleteTodoItem(itemId: string) {
