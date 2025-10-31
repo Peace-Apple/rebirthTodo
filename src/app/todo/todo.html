@@ -1,5 +1,9 @@
 <div>
   <h1>Todo List</h1>
+  <div>
+   <input type="text" placeholder="Enter new task" [(ngModel)]="newTask">
+   <button (click)="addTodoItem()">Add</button>
+  </div>
   @for (item of todoItems; track item.id) {
     <div>
         <ul>

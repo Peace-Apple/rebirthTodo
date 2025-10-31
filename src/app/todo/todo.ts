@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
 import { TodoItem } from '../todo-item';
 import { v4 as uuidv4 } from 'uuid';
+import { FormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-todo',
-  imports: [],
+  imports: [
+    FormsModule
+  ],
   templateUrl: './todo.html',
   styleUrl: './todo.scss',
 })
 export class Todo {
+  newTask: string ='';
   todoItems: TodoItem[] = [
     {
       id: uuidv4(),
@@ -16,4 +20,15 @@ export class Todo {
       completed: false
     }
   ]
+  
+  addTodoItem() {
+    const newTodoItem =  {
+      id: uuidv4(),
+      task: this.newTask,
+      completed: false
+    }
+    if (this.newTask.trim()) {
+      this.todoItems.push(newTodoItem);
+    }
+  }
 }
