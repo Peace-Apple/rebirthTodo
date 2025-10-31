@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TodoItem } from '../todo-item';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-todo',
@@ -10,7 +11,7 @@ import { TodoItem } from '../todo-item';
 export class Todo {
   todoItems: TodoItem[] = [
     {
-      id: 1,
+      id: uuidv4(),
       task: 'Review Angular concepts',
       completed: false
     }
