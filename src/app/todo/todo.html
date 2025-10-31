@@ -1,20 +1,46 @@
-<div>
-  <h1>Todo List</h1>
-  <div>
-   <input type="text" name="newTask" placeholder="Enter new task" [(ngModel)]="newTask">
-   <button (click)="addTodoItem()">Add</button>
-  </div>
-  @for (item of todoItems; track item.id) {
-    <div>
-        <ul>
-            <li>
-                <input type="checkbox" (change)="completeTodo(item.id)">
-                <span [class.completed]="item.completed">{{ item.task }}</span>
-                <button (click)="deleteTodoItem(item.id)">Delete</button>
-            </li>
-        </ul>
+<div class="container">
+    <div class="m-3">
+        <span class="text-center"><h1>Todo List</h1></span>
     </div>
-  } @empty {
-    <p>No todo items added.</p>
-  }
+
+    <div class="input-group mb-3">
+        <input 
+            type="text" 
+            name="newTask"
+            [(ngModel)]="newTask"
+            class="form-control shadow-none" 
+            placeholder="Enter new task" 
+            aria-label="Enter new task" 
+            aria-describedby="addButton"
+        >
+        <button class="btn btn-outline-success" (click)="addTodoItem()">Add</button>
+    </div>
+
+    @for (item of todoItems; track item.id) {
+        <div>
+            <ul class="list-unstyled">
+                <li>
+                    <div class="row">
+                        <div class="col">
+                            <input 
+                                class="form-check-input shadow-none" 
+                                type="checkbox"
+                                (change)="completeTodo(item.id)"
+                                value="" 
+                                aria-label="Checkbox for following text input"
+                            >
+                        </div>
+                        <div class="col-md-10 d-flex text-break">
+                            <span [class.completed]="item.completed">{{ item.task }}</span>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-outline-danger btn-sm float-end" (click)="deleteTodoItem(item.id)">Delete</button>
+                        </div>
+                    </div>  
+                </li>
+            </ul>
+        </div>
+    } @empty {
+        <span class="text-center"><p>No todo items added.</p></span>
+    }
 </div>
