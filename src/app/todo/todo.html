@@ -1,1 +1,16 @@
-<h1>Todo List</h1>
+<div>
+  <h1>Todo List</h1>
+  @for (item of todoItems; track item.id) {
+    <div>
+        <ul>
+            <li>
+                <input type="checkbox">
+                <span>{{ item.task }}</span>
+                <button>Delete</button>
+            </li>
+        </ul>
+    </div>
+  } @empty {
+    <p>No todo items added.</p>
+  }
+</div>
