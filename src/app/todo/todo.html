@@ -9,7 +9,7 @@
         <ul>
             <li>
                 <input type="checkbox" (change)="completeTodo(item.id)">
-                <span>{{ item.task }}</span>
+                <span [class.completed]="item.completed">{{ item.task }}</span>
                 <button (click)="deleteTodoItem(item.id)">Delete</button>
             </li>
         </ul>

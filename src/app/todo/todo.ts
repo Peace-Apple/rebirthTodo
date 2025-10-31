@@ -13,13 +13,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class Todo {
   newTask: string ='';
-  todoItems: TodoItem[] = [
-    {
-      id: uuidv4(),
-      task: 'Review Angular concepts',
-      completed: false
-    }
-  ]
+  todoItems: TodoItem[] = []
   
   addTodoItem() {
     const newTodoItem =  {
